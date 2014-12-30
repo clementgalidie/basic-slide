@@ -65,6 +65,8 @@ body {margin: 0;}
 					transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.slider-arrow--hidden {display: none;}
+
 .slider-arrow:hover {cursor: pointer;}
 
 .slider-items {
