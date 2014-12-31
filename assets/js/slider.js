@@ -3,22 +3,19 @@
 
 	// Get the number of all the slides.
 	var slides = document.querySelectorAll(".slider-items").length; 
-	
-	// Enable to set a number for each slides.
-	var slidesNumber = 1;
 
 	// Get the previous button.
 	var prevButton = document.getElementById("previous");
 
 	// Get the next button.
 	var nextButton = document.getElementById("next");
+	
+	// Enable to set a number for each slides.
+	var slidesNumber = 1;
 
+	// Hide previous button if we've reached the first slide.
 	if (slidesNumber === 1) {
-		prevButton.classList.add("slider-arrow--hidden");
-	}
-
-	if (slidesNumber < 5) {
-			nextButton.classList.remove("slider-arrow--hidden");
+		prevButton.classList.add("slider-wrapper-arrow--hidden");
 	}
 
 	// Get previous slide.
@@ -30,15 +27,20 @@
 			previousVisibleSlide.classList.add("slider-items--visible");
 		}
 		visibleSlide.classList.remove("slider-items--visible");
+
+		// Show next button while slidesNumber !== 5.
+		if (slidesNumber < 5) {
+			nextButton.classList.remove("slider-wrapper-arrow--hidden");
+		}
+
+		if (slidesNumber === 1) {
+			prevButton.classList.add("slider-wrapper-arrow--hidden");
+		}
 	}
 
 	// Get next slide.
 	var nextSlide = function () {
 		slidesNumber++;
-
-		// Show previous button.
-		prevButton.classList.remove("slider-arrow--hidden");
-
 		var visibleSlide = document.querySelector(".slider-items--visible");
 		var nextVisibleSlide = visibleSlide.nextSibling.nextSibling;
 		if (nextVisibleSlide.nodeName.toLowerCase() === "li") {
@@ -46,9 +48,14 @@
 		}
 		visibleSlide.classList.remove("slider-items--visible");
 
-		// Hide next button when we reached the last slide.
-		if (slidesNumber === slides) {
-			nextButton.classList.add("slider-arrow--hidden");
+		// Hide next button if we've reached the last slide.
+		if (slidesNumber === 5) {
+			nextButton.classList.add("slider-wrapper-arrow--hidden")
+		}
+
+		// Show previous button while slidesNumber !== 1.
+		if (slidesNumber > 1) {
+			prevButton.classList.remove("slider-wrapper-arrow--hidden");
 		}
 	}
 

@@ -10,17 +10,20 @@ body {margin: 0;}
  * Slider width: 18.75rem.
  * Slider height: 12.5rem.
  */
-.slider {
-	position: relative;
+ .slider-wrapper {
+ 	position: relative;
 	width: 18.75rem;
 	height: 12.5rem;
 	overflow: hidden; /* Hide each element overflowing the slider wrapper. */
+ }
+ 
+.slider {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
-.slider-arrow {
+.slider-wrapper-arrow {
 	position: absolute;
 	top: 50%;
 	width: 1.563rem;
@@ -33,9 +36,9 @@ body {margin: 0;}
 					transform: translateY(-50%);
 }
 
-.slider-arrow--left {left: .625rem;}
+.slider-wrapper-arrow--left {left: .625rem;}
 
-.slider-arrow--left::before {
+.slider-wrapper-arrow--left::before {
 	content: "";
 	position: absolute;
 	top: 50%;
@@ -49,9 +52,9 @@ body {margin: 0;}
 					transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.slider-arrow--right {right: .625rem;}
+.slider-wrapper-arrow--right {right: .625rem;}
 
-.slider-arrow--right::before {
+.slider-wrapper-arrow--right::before {
 	content: "";
 	position: absolute;
 	top: 50%;
@@ -65,9 +68,9 @@ body {margin: 0;}
 					transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.slider-arrow--hidden {display: none;}
+.slider-wrapper-arrow--hidden {display: none;}
 
-.slider-arrow:hover {cursor: pointer;}
+.slider-wrapper-arrow:hover {cursor: pointer;}
 
 .slider-items {
 	display: none;
