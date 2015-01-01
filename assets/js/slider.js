@@ -2,7 +2,7 @@
 	"use strict"; // IEF + strict mode.
 
 	// Get the number of all the slides.
-	var slides = document.querySelectorAll(".slider-items").length; 
+	var allSlides = document.querySelectorAll(".slider-items").length; 
 
 	// Get the previous button.
 	var prevButton = document.getElementById("previous");
@@ -29,10 +29,11 @@
 		visibleSlide.classList.remove("slider-items--visible");
 
 		// Show next button while slidesNumber !== 5.
-		if (slidesNumber < 5) {
+		if (slidesNumber < allSlides) {
 			nextButton.classList.remove("slider-wrapper-arrow--hidden");
 		}
 
+		// Hide previous button if we're on the first slide.
 		if (slidesNumber === 1) {
 			prevButton.classList.add("slider-wrapper-arrow--hidden");
 		}
@@ -49,7 +50,7 @@
 		visibleSlide.classList.remove("slider-items--visible");
 
 		// Hide next button if we've reached the last slide.
-		if (slidesNumber === 5) {
+		if (slidesNumber === allSlides) {
 			nextButton.classList.add("slider-wrapper-arrow--hidden")
 		}
 
