@@ -10,7 +10,7 @@
 	// Get the next button.
 	var nextButton = document.getElementById("next");
 	
-	// Enable to set a number for each slides.
+	// Index of the currently displayed slide.
 	var currentSlideIndex = 1;
 
 	// Hide previous button if we've reached the first slide.
@@ -18,8 +18,8 @@
 		prevButton.classList.add("slider-wrapper-arrow--hidden");
 	}
 
-	// Get previous slide.
-	var previousSlide = function () {
+	// Show the previous slide.
+	var showPreviousSlide = function () {
 		currentSlideIndex--;
 		var visibleSlide = document.querySelector(".slider-items--visible");
 		var previousVisibleSlide = visibleSlide.previousSibling.previousSibling;
@@ -39,8 +39,8 @@
 		}
 	}
 
-	// Get next slide.
-	var nextSlide = function () {
+	// Show the next slide.
+	var showNextSlide = function () {
 		currentSlideIndex++;
 		var visibleSlide = document.querySelector(".slider-items--visible");
 		var nextVisibleSlide = visibleSlide.nextSibling.nextSibling;
@@ -60,10 +60,10 @@
 		}
 	}
 
-	// When clicking on previous button, call previousSlide().
-	prevButton.addEventListener("click", previousSlide);
+	// When clicking on previous button, call showPreviousSlide().
+	prevButton.addEventListener("click", showPreviousSlide);
 
-	// When clicking on next button, call nextSlide().
-	nextButton.addEventListener("click", nextSlide);
+	// When clicking on next button, call showNextSlide().
+	nextButton.addEventListener("click", showNextSlide);
 
 }());
